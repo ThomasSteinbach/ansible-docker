@@ -1,0 +1,6 @@
+- name: installs docker on the target client
+  hosts: target
+
+  roles:
+    - role: thomass.docker
+      docker_sudoless: yes
