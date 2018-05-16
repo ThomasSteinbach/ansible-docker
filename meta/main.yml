@@ -1,6 +1,5 @@
 ---
 dependencies:
-  - role: thomass.common
   - role: thomass.pki
     pki_home: "{{ DOCKER_PKI_DIR }}"
     pki_password: "{{ docker_pki_password }}"
