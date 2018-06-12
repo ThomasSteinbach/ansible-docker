@@ -1,0 +1,19 @@
+- name: install docker
+  apt:
+    name: docker.io
+
+- name: install docker-compose
+  apt:
+    name: docker-compose
+  when: docker_install_compose == true
+
+- name: install python docker library
+  apt:
+    name: python-docker
+
+- name: add user to docker group to allow use of docker without sudo
+  user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: yes
+  when: docker_sudoless == true

@@ -2,7 +2,7 @@
   hosts: target
 
   roles:
-    - role: thomass.docker
+    - role: ansible-thomass-docker
       docker_server_domain: localhost
       docker_server_ip: 127.0.0.1
       docker_server_port: 4243

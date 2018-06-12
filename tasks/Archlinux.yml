@@ -1,0 +1,21 @@
+- name: install docker
+  pacman:
+    name: docker
+    state: present
+
+- name: install docker-compose
+  pacman:
+    name: docker-compose
+  when: docker_install_compose == true
+
+- name: install python docker library
+  pacman:
+    name: python-docker
+    state: present
+
+- name: add user to docker group to allow use of docker without sudo
+  user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: yes
+  when: docker_sudoless == true

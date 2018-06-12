@@ -2,5 +2,5 @@
   hosts: target
 
   roles:
-    - role: ansible-docker
+    - role: ansible-thomass-docker
       docker_sudoless: yes

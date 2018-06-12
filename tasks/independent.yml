@@ -1,0 +1,21 @@
+- name: ensure docker service is running
+  service:
+    name: docker
+    state: started
+
+- name: ensure docker service is enabled
+  service:
+    name: docker
+    enabled: yes
+    use: service
+
+- name: create docker alias d for quick use of docker functionality
+  lineinfile:
+    dest: "{{ ansible_user_dir }}/.bashrc"
+    line: "alias d='docker'"
+    state: present
+    create: yes
+
+- name: allow remote access to docker daemon if configured
+  include_tasks: remoteconfig.yml
+  when: docker_server_domain is defined
